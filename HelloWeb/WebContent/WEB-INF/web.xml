@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <!-- 
+  	web.xml : Web Application의 설정파일
+  			  Deployment Descriptor (DD파일)
+  			 위치 : Application Root경로/WEB-INF 폴더 하위
+   -->
+  <display-name>HelloWeb</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!--  HelloServlet 객체를 등록 -->
+  <servlet>
+  	<servlet-name>hello</servlet-name>
+  	<servlet-class>hello.servlet.HelloServlet</servlet-class>
+  	<load-on-startup>2</load-on-startup>
+  </servlet>
+  <!-- HelloServlet 객체를 사용자가 요청하는방법(URL) 등록 -->
+  <servlet-mapping>
+  	<servlet-name>hello</servlet-name>
+  	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  
+  <!-- LifecycleServlet 클래스(X)/객체(O) 등록
+  		LifecycleServlet클래스의 객체를 생성해서 이름을 lifecycle로 주어라.
+   -->
+  <servlet>
+  	<servlet-name>lifecycle</servlet-name>
+  	<servlet-class>lifecycle.LifecycleServlet</servlet-class>
+  	<load-on-startup>1	</load-on-startup>
+  </servlet>
+  
+  <!-- 
+  	사용자가 /lifecycleExam URL로 요청하면 이름이 lifecycle인 서블릿 객체의 service()를 실행히켜서 처리해라.
+   -->
+  <servlet-mapping>
+  	<servlet-name>lifecycle</servlet-name>
+  	<url-pattern>/lifecycleExam</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>counter</servlet-name>
+  	<servlet-class>servlet.CounterServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>counter</servlet-name>
+  	<url-pattern>/counter</url-pattern>
+  </servlet-mapping>
+</web-app>

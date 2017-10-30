@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>GET/POST방식 호출</title>
+	<style>
+		a {
+			color:inherit;
+			text-decoration:none;
+		}
+		
+		a:hover {
+			color:red;
+			border-bottom:2px solid #000000;
+		}
+		
+		button {
+			width:250px;
+			height:50px;
+			border-radius:10px;
+			box-shadow:10px 10px 10px 0;
+			cursor:pointer;
+			float:left;
+		}
+	</style>
+</head>
+<body> 
+<h2>HelloServlet요청 호출</h2>
+	<a href="http://127.0.0.1:8088/HelloWeb/hello">hello - 전체경로</a><br>
+	<a href="hello">hello - 절대경로</a><br>
+	<a href="/HelloWeb/hello">hello - 상대경로</a>
+
+<h2>CounterServlet2 호출</h2>
+	<a href="http://127.0.0.1:8088/HelloWeb/counter2">count - 전체경로</a><br>
+	<a href="counter2">count - 절대경로</a><br>
+	<a href="/HelloWeb/counter2">count - 상대경로</a>
+
+<h2>lifecycle 서블릿 호출</h2>
+	<a href = "http://192.168.0.173:8088/HelloWeb/lifecycleExam">
+		LifecycleServlet - GET 호출
+	</a>
+	<br>
+	<form action = "http://192.168.0.173:8088/HelloWeb/lifecycleExam" method = "post">
+		<button>
+			LifecycleServlet - POST 호출
+		</button>
+	</form>
+</body>
+</html>
